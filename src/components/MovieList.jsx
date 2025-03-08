@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MovieCard from '../components/MovieCard';
 
-const MovieList = () => {
+const MovieList = ({ movies }) => {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const filteredMovies = movies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
-        <div className="movie-list">
-            <MovieCard
-                poster='poster.jpg'
-                title='Dune'
-                description='description'
-                genre='Action, Adventure, Drama'
-                showtime='8:00 AM'
+        <div>
+            <input
+                type="text"
+                placeholder="Search by title"
+                value={searchTerm}
+                onChange={handleSearchChange}
             />
+            {filteredMovies.map((movie, index) => (
+                <MovieCard
+                    key={index}
+                    poster={movie.poster}
+                    title={movie.title}
+                    description={movie.description}
+                    genre={movie.genre}
+                    showtime={movie.showtime}
+                />
+            ))}
         </div>
     );
 };

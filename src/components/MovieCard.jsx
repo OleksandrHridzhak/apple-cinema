@@ -3,7 +3,7 @@ import React from 'react';
 
 const MovieCard = ({ poster, title, description, genre, showtime }) => {
     return (
-        <div className="movie-card">
+        <div className="font-serif">
             <img src={poster} alt={`Poster`} className="movie-poster" />
             <h2 className="movie-title">{title}</h2>
             <p className="movie-description">{description}</p>
