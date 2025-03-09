@@ -13,23 +13,26 @@ const MovieList = ({ movies }) => {
     );
 
     return (
-        <div>
+        <div className="p-4">
             <input
                 type="text"
-                placeholder="Search by title"
+                placeholder="Search movies..."
                 value={searchTerm}
                 onChange={handleSearchChange}
+                className="mb-4 p-2 border border-gray-300 rounded"
             />
-            {filteredMovies.map((movie, index) => (
-                <MovieCard
-                    key={index}
-                    poster={movie.poster}
-                    title={movie.title}
-                    description={movie.description}
-                    genre={movie.genre}
-                    showtime={movie.showtime}
-                />
-            ))}
+            <div className="flex justify-center flex-wrap gap-4">
+                {filteredMovies.map((movie, index) => (
+                    <MovieCard
+                        key={index}
+                        poster={movie.poster}
+                        title={movie.title}
+                        description={movie.description}
+                        genre={movie.genre}
+                        showtime={movie.showtime}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
