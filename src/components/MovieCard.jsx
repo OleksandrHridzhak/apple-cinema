@@ -12,8 +12,8 @@ const MovieCard = ({ poster, title, description, genre, showtime }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="bg-gray-900/80 rounded-[24px] p-6 border border-gray-700/30 transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-500 backdrop-blur-sm">
-                    <h2 className="font-serif text-3xl font-bold text-blue-400 drop-shadow-xl text-center mb-3">
+                <div className="bg-gray-900/80 rounded-[24px] p-6 border border-gray-700/30 transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ">
+                    <h2 className=" text-3xl font-bold text-white drop-shadow-xl text-center mb-3">
                         {title}
                     </h2>
                     <p className="text-sm text-gray-200 text-center font-light leading-relaxed mb-4">
