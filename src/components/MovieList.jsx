@@ -28,6 +28,7 @@ const MovieList = ({ movies }) => {
                     {filteredMovies.map((movie, index) => (
                     <MovieCard
                         key={index}
+                        id={movie.id}
                         poster={movie.poster}
                         title={movie.title}
                         description={movie.description}

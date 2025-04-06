@@ -1,12 +1,11 @@
 import React from 'react';
 
-const CinemaHall = () => {
-  const [selectedSeats, setSelectedSeats] = React.useState([]);
+const CinemaHall = ({selectedSeats, onSeatSelect, takenSeats}) => {
 
   const generateSeatMap = () => {
     const seatMap = {};
     const rows = ['1', '2', '3', '4', '5', '6'];
-    const takenSeats = ['23', '34', '45', '51', '64'];
+    console.log(takenSeats);
 
     rows.forEach(row => {
       for (let i = 1; i <= 12; i++) {
@@ -25,12 +24,12 @@ const CinemaHall = () => {
 
   const toggleSeat = (seatId) => {
     if (seatMap[seatId].status === 'taken') return;
-
-    if (selectedSeats.includes(seatId)) {
-      setSelectedSeats(selectedSeats.filter(id => id !== seatId));
-    } else {
-      setSelectedSeats([...selectedSeats, seatId]);
-    }
+    
+    const newSelected = selectedSeats.includes(seatId)
+      ? selectedSeats.filter(id => id !== seatId)
+      : [...selectedSeats, seatId];
+    
+    onSeatSelect(newSelected);
   };
 
   const getSeatStatus = (seatId) => {
@@ -55,7 +54,7 @@ const CinemaHall = () => {
   
 
   return (
-    <div className="overflow-x-auto px-4 py-10 bg-white min-h-screen text-blue-800">
+    <div className="overflow-x-auto px-4 py-5 bg-white text-blue-800">
       <div className="max-w-4xl mx-auto">
         <div className="relative h-24 mb-10 text-center">
           <svg
@@ -76,7 +75,7 @@ const CinemaHall = () => {
           </span>
         </div>
 
-        <div className="min-w-max">
+        <div className="min-w-max justify-center flex flex-col items-center">
           {rows.map(row => (
             <div key={row} className="flex items-center mb-2">
               <div className="w-6 text-center text-blue-600">{row}</div>
@@ -87,18 +86,17 @@ const CinemaHall = () => {
                   return (
                     <div
                       key={seatId}
-                      className={`w-7 h-9 rounded ${getSeatStyles(status)}`}
+                      className={`w-8 h-10 rounded ${getSeatStyles(status)}`}
                       onClick={() => toggleSeat(seatId)}
                     ></div>
                   );
                 })}
               </div>
-              <div className="w-6 text-center text-blue-600">{row}</div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 flex justify-center gap-6 flex-wrap text-sm text-blue-700">
+        <div className="mt-5 flex justify-center gap-6 flex-wrap text-sm text-blue-700">
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 bg-blue-300 rounded-sm" />
             <span>Вільні</span>
