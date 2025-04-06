@@ -6,8 +6,7 @@ const movies = [
         description: 'A mythic and emotionally charged hero’s journey.',
         genre: 'Action, Adventure, Drama',
         showtime: '21.02 8:00 AM',
-        duration: '2h 35m',
-        takenseats: ['12','14','45']
+        duration: '2h 35m'
     },
     {
         id:2,
@@ -16,8 +15,7 @@ const movies = [
         description: 'Tashi, a former tennis prodigy turned coach, makes her husband play against her ex.',
         genre: 'Drama, Romance, Sport',
         showtime: '22.02 9:30 PM',
-        duration: '1h 50m',
-        takenseats: []
+        duration: '1h 50m'
     },
     {
         id: 3,
@@ -26,8 +24,7 @@ const movies = [
         description: 'A Hollywood stuntman gets caught in a dangerous heist.',
         genre: 'Action, Crime, Drama',
         showtime: '23.02 7:00 PM',
-        duration: '1h 40m',
-        takenseats: []
+        duration: '1h 40m'
     },
     {
         id: 4,
@@ -36,8 +33,7 @@ const movies = [
         description: 'An eight-year-old troublemaker must protect his house from burglars.',
         genre: 'Comedy, Family',
         showtime: '24.02 10:00 PM',
-        duration: '1h 43m',
-        takenseats: []
+        duration: '1h 43m'
     },
     {
         id: 5,
@@ -46,8 +42,7 @@ const movies = [
         description: 'A man discovers that his entire life is a reality TV show.',
         genre: 'Drama, Sci-Fi',
         showtime: '25.02 6:30 PM',
-        duration: '1h 43m',
-        takenseats: []
+        duration: '1h 43m'
     },
     {
         id: 6,
@@ -56,8 +51,7 @@ const movies = [
         description: 'A journey through space and human evolution, guided by a mysterious monolith.',
         genre: 'Adventure, Sci-Fi',
         showtime: '26.02 8:00 PM',
-        duration: '2h 29m',
-        takenseats: []
+        duration: '2h 29m'
     },
     {
         id: 7,
@@ -66,8 +60,7 @@ const movies = [
         description: 'A disposable worker on a mission to colonize an ice world faces unexpected challenges.',
         genre: 'Sci-Fi, Thriller',
         showtime: '27.02 9:00 PM',
-        duration: '2h 15m',
-        takenseats: []
+        duration: '2h 15m'
     },
     {
         id: 8,
@@ -76,8 +69,7 @@ const movies = [
         description: 'A mentally unstable Vietnam War veteran becomes a taxi driver in New York.',
         genre: 'Crime, Drama, Thriller',
         showtime: '28.02 8:00 PM',
-        duration: '1h 54m',
-        takenseats: []
+        duration: '1h 54m'
     },
     {
         id: 9,
@@ -86,8 +78,7 @@ const movies = [
         description: 'A teenage gymnast’s life changes when she meets her half-brother.',
         genre: 'Drama, Sport',
         showtime: '29.02 7:00 PM',
-        duration: '1h 23m',
-        takenseats: []
+        duration: '1h 23m'
     },
     {
         id: 10,
@@ -96,8 +87,7 @@ const movies = [
         description: 'A secret agent embarks on a mission involving time inversion.',
         genre: 'Action, Sci-Fi, Thriller',
         showtime: '01.03 9:00 PM',
-        duration: '2h 30m',
-        takenseats: []
+        duration: '2h 30m'
     },
     {
         id: 11,
@@ -106,8 +96,7 @@ const movies = [
         description: 'Superhuman individuals clash in a psychological thriller.',
         genre: 'Drama, Sci-Fi, Thriller',
         showtime: '02.03 8:30 PM',
-        duration: '2h 9m',
-        takenseats: []
+        duration: '2h 9m'
     }
 ];
 
