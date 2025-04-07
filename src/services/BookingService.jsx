@@ -12,32 +12,56 @@ export const getAllBookings = () => {
 export const saveBooking = (bookingData) => {
     try {
         const bookings = getAllBookings();
-        bookings.push(bookingData);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
-        return true;
+        const existingSeats = getTakenSeatsForSeance(bookingData.movieId, bookingData.seance);
+        const conflictedSeats = bookingData.seats.filter(seat => existingSeats.includes(seat));
+        
+        if (conflictedSeats.length > 0) {
+            return {
+                success: false,
+                message: `Наступні місця вже зайняті: ${conflictedSeats.join(', ')}`,
+                conflictedSeats
+            };
+        }
+
+        const newBooking = {
+            ...bookingData,
+            id: Date.now().toString()
+        };
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...bookings, newBooking]));
+        return { success: true, bookingId: newBooking.id };
     } catch (error) {
         console.error('Помилка збереження бронювання:', error);
-        return false;
+        return { success: false, message: 'Помилка сервера' };
     }
 };
 
-export const getReservationsByMovieId = (movieId) => {
+export const getReservationsForSeance = (movieId, seance) => {
     const bookings = getAllBookings();
-    return bookings.filter(booking => booking.movieId === movieId);
+    return bookings.filter(b => b.movieId === movieId && b.seance === seance);
 };
 
-export const getTakenSeatsForMovie = (movieId) => {
-    const reservations = getReservationsByMovieId(movieId);
-    return reservations.flatMap(reservation => reservation.seats);
+export const getTakenSeatsForSeance = (movieId, seance) => {
+    const reservations = getReservationsForSeance(movieId, seance);
+    return reservations.flatMap(r => r.seats);
+};
+
+export const checkSeatsAvailability = (movieId, seance, seats) => {
+    const takenSeats = getTakenSeatsForSeance(movieId, seance);
+    const unavailable = seats.filter(seat => takenSeats.includes(seat));
+    return {
+        available: unavailable.length === 0,
+        unavailableSeats: unavailable
+    };
 };
 
 export const cancelBooking = (bookingId) => {
     try {
-        const bookings = getAllBookings().filter(b => b.id !== bookingId);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
-        return true;
+        const updatedBookings = getAllBookings().filter(b => b.id !== bookingId);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedBookings));
+        return { success: true };
     } catch (error) {
-        console.error('Помилка скасування бронювання:', error);
-        return false;
+        console.error('Помилка скасування:', error);
+        return { success: false, message: 'Помилка скасування бронювання' };
     }
 };

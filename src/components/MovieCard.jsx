@@ -31,7 +31,7 @@ const MovieCard = ({ id, poster, title, description, genre, showtime }) => {
               to={`/booking/${id}`}
               className="px-4 py-1 bg-blue-500 text-white text-m rounded-full hover:bg-blue-600 transition duration-300"
             >
-              Buy Ticket
+              Купити квиток
             </Link>
           </div>
         </div>

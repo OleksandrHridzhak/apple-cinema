@@ -1,103 +1,103 @@
 const movies = [
     {
-        id:1,
-        poster: 'dune.jpg',
-        title: 'Dune',
-        description: 'A mythic and emotionally charged hero’s journey.',
-        genre: 'Action, Adventure, Drama',
-        showtime: '21.02 8:00 AM',
-        duration: '2h 35m'
+      id: 1,
+      poster: 'dune.jpg',
+      title: 'Дюна',
+      description: 'У далекому майбутньому, де благородні родини борються за контроль над пустельною планетою зі цінною пряністю, молодий Пол Атрейдес має прийняти свою долю та розкрити загадкові сили, щоб врятувати свій народ і змінити долю всесвіту.',
+      genre: 'Екшн, Пригоди, Драма',
+      duration: '2 год 35 хв',
+      seanceTimes: ['21.02 8:00', '21.02 15:00', '21.02 19:00']
     },
     {
-        id:2,
-        poster: 'challengers.jpg',
-        title: 'Challengers',
-        description: 'Tashi, a former tennis prodigy turned coach, makes her husband play against her ex.',
-        genre: 'Drama, Romance, Sport',
-        showtime: '22.02 9:30 PM',
-        duration: '1h 50m'
+      id: 2,
+      poster: 'challengers.jpg',
+      title: 'Челленджери',
+      description: 'Таші, колишня тенісна зірка, тепер амбітний тренер, випробовує свій шлюб і кар’єру, організовуючи матч між своїм чоловіком і колишнім хлопцем, відновлюючи старі суперечки на корті та поза ним.',
+      genre: 'Драма, Романтика, Спорт',
+      duration: '1 год 50 хв',
+      seanceTimes: ['22.02 21:30', '23.02 14:00', '23.02 18:00']
     },
     {
-        id: 3,
-        poster: 'drive.jpg',
-        title: 'Drive',
-        description: 'A Hollywood stuntman gets caught in a dangerous heist.',
-        genre: 'Action, Crime, Drama',
-        showtime: '23.02 7:00 PM',
-        duration: '1h 40m'
+      id: 3,
+      poster: 'drive.jpg',
+      title: 'Драйв',
+      description: 'Вдень він каскадер, а вночі — водій для втечі. Але коли він потрапляє у невдале пограбування, щоб захистити свою сусідку, життя тихого одинака перетворюється на спіраль насильства, помсти та темних секретів.',
+      genre: 'Екшн, Кримінал, Драма',
+      duration: '1 год 40 хв',
+      seanceTimes: ['23.02 19:00', '24.02 13:00', '24.02 17:00']
     },
     {
-        id: 4,
-        poster: 'homealone.jpg',
-        title: 'Home Alone',
-        description: 'An eight-year-old troublemaker must protect his house from burglars.',
-        genre: 'Comedy, Family',
-        showtime: '24.02 10:00 PM',
-        duration: '1h 43m'
+      id: 4,
+      poster: 'homealone.jpg',
+      title: 'Сам удома',
+      description: 'Коли пустотливого Кевіна випадково залишають вдома під час різдвяних канікул, він має захистити свій дім від двох незграбних грабіжників за допомогою серії кумедних і винахідливих пасток.',
+      genre: 'Комедія, Сімейний',
+      duration: '1 год 43 хв',
+      seanceTimes: ['24.02 22:00', '25.02 12:00', '25.02 16:00']
     },
     {
-        id: 5,
-        poster: 'thetrumanshow.jpg',
-        title: 'The Truman Show',
-        description: 'A man discovers that his entire life is a reality TV show.',
-        genre: 'Drama, Sci-Fi',
-        showtime: '25.02 6:30 PM',
-        duration: '1h 43m'
+      id: 5,
+      poster: 'thetrumanshow.jpg',
+      title: 'Шоу Трумана',
+      description: 'Труман Бербанк живе, здається, ідеальним життям — поки не дізнається, що він був несвідомою зіркою реаліті-шоу, яке транслюється усьому світу з моменту його народження.',
+      genre: 'Драма, Наукова фантастика',
+      duration: '1 год 43 хв',
+      seanceTimes: ['25.02 18:30', '26.02 11:00', '26.02 15:00']
     },
     {
-        id: 6,
-        poster: '2001.jpg',
-        title: '2001: A Space Odyssey',
-        description: 'A journey through space and human evolution, guided by a mysterious monolith.',
-        genre: 'Adventure, Sci-Fi',
-        showtime: '26.02 8:00 PM',
-        duration: '2h 29m'
+      id: 6,
+      poster: '2001.jpg',
+      title: '2001: Космічна Одіссея',
+      description: 'Візуально революційне дослідження космічних подорожей, штучного інтелекту та еволюції людини, коли загадковий моноліт веде людство через зірки.',
+      genre: 'Пригоди, Наукова фантастика',
+      duration: '2 год 29 хв',
+      seanceTimes: ['26.02 20:00', '27.02 14:00', '27.02 18:00']
     },
     {
-        id: 7,
-        poster: 'mickey17.jpg',
-        title: 'Mickey 17',
-        description: 'A disposable worker on a mission to colonize an ice world faces unexpected challenges.',
-        genre: 'Sci-Fi, Thriller',
-        showtime: '27.02 9:00 PM',
-        duration: '2h 15m'
+      id: 7,
+      poster: 'mickey17.jpg',
+      title: 'Міккі 17',
+      description: 'На далекій крижаній планеті одноразовий клон-працівник на ім’я Міккі вирушає на смертельну місію — але коли він порушує накази, він починає розкривати секрети, які можуть змінити все.',
+      genre: 'Наукова фантастика, Трилер',
+      duration: '2 год 15 хв',
+      seanceTimes: ['27.02 21:00', '28.02 13:00', '28.02 17:00']
     },
     {
-        id: 8,
-        poster: 'taxidriver.jpg',
-        title: 'Taxi Driver',
-        description: 'A mentally unstable Vietnam War veteran becomes a taxi driver in New York.',
-        genre: 'Crime, Drama, Thriller',
-        showtime: '28.02 8:00 PM',
-        duration: '1h 54m'
+      id: 8,
+      poster: 'taxidriver.jpg',
+      title: 'Таксист',
+      description: 'Переслідуваний війною та відчуженням, Тревіс Бікл стає нічним таксистом у Нью-Йорку, поступово занурюючись у божевілля та насильство у своїй спробі "очистити" місто.',
+      genre: 'Кримінал, Драма, Трилер',
+      duration: '1 год 54 хв',
+      seanceTimes: ['28.02 20:00', '01.03 12:00', '01.03 16:00']
     },
     {
-        id: 9,
-        poster: 'ten.jpg',
-        title: 'Perfect Ten',
-        description: 'A teenage gymnast’s life changes when she meets her half-brother.',
-        genre: 'Drama, Sport',
-        showtime: '29.02 7:00 PM',
-        duration: '1h 23m'
+      id: 9,
+      poster: 'ten.jpg',
+      title: 'Ідеальна десятка',
+      description: 'Підліток-гімнастка, яка бореться з особистими втратами, знаходить новий сенс життя та ідентичність, коли возз’єднується зі своїм відчуженим зведеним братом із кримінального світу.',
+      genre: 'Драма, Спорт',
+      duration: '1 год 23 хв',
+      seanceTimes: ['29.02 19:00', '01.03 10:00', '01.03 14:00']
     },
     {
-        id: 10,
-        poster: 'tenet.jpg',
-        title: 'Tenet',
-        description: 'A secret agent embarks on a mission involving time inversion.',
-        genre: 'Action, Sci-Fi, Thriller',
-        showtime: '01.03 9:00 PM',
-        duration: '2h 30m'
+      id: 10,
+      poster: 'tenet.jpg',
+      title: 'Тенет',
+      description: 'Таємничий агент бореться, щоб запобігти Третій світовій війні, використовуючи технологію інверсії часу, кидаючи виклик природі часу та реальності у захоплюючому шпигунському трилері.',
+      genre: 'Екшн, Наукова фантастика, Трилер',
+      duration: '2 год 30 хв',
+      seanceTimes: ['01.03 21:00', '02.03 13:00', '02.03 17:00']
     },
     {
-        id: 11,
-        poster: 'vidro.jpg',
-        title: 'Glass',
-        description: 'Superhuman individuals clash in a psychological thriller.',
-        genre: 'Drama, Sci-Fi, Thriller',
-        showtime: '02.03 8:30 PM',
-        duration: '2h 9m'
+      id: 11,
+      poster: 'vidro.jpg',
+      title: 'Скло',
+      description: 'Після подій "Спліт" троє чоловіків із надзвичайними здібностями стикаються у психіатричній лікарні, де розкриваються секрети про їхні сили та їхнє місце у світі.',
+      genre: 'Драма, Наукова фантастика, Трилер',
+      duration: '2 год 9 хв',
+      seanceTimes: ['02.03 20:30', '03.03 12:00', '03.03 16:00']
     }
-];
-
-export default movies;
+  ];
+  
+  export default movies;

@@ -17,7 +17,7 @@ const MovieList = ({ movies }) => {
             <div className="max-w-7xl mx-auto mb-8">
                 <input
                     type="text"
-                    placeholder="Search movies..."
+                    placeholder="Пошук фільмів..."
                     value={searchTerm}
                     onChange={handleSearchChange}
                     className="w-full p-3 bg-gray-50 border-2 border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
@@ -31,9 +31,9 @@ const MovieList = ({ movies }) => {
                         id={movie.id}
                         poster={movie.poster}
                         title={movie.title}
-                        description={movie.description}
+                        description={`${movie.description.slice(0, 100)}${movie.description.length > 100 ? '...' : ''}`}
                         genre={movie.genre}
-                        showtime={movie.showtime}
+                        showtime={movie.seanceTimes[0]}
                     />
                     ))}
                 </div>
@@ -43,7 +43,7 @@ const MovieList = ({ movies }) => {
             {filteredMovies.length === 0 && (
                 <div className="text-center mt-12">
                     <p className="text-2xl font-bold text-blue-500">
-                        No movies found
+                        Нічого не знайдено
                     </p>
                 </div>
             )}
