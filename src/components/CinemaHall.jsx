@@ -39,7 +39,7 @@ const CinemaHall = ({selectedSeats, onSeatSelect, takenSeats}) => {
   const getSeatStyles = (status) => {
     switch (status) {
       case 'taken':
-        return 'bg-white border border-blue-300 shadow-inner';
+        return 'bg-white border-2 border-blue-300 shadow-inner';
       case 'selected':
         return 'bg-blue-500 ring-1 sm:ring-2 ring-blue-600 shadow-md';
       case 'available':
@@ -100,11 +100,11 @@ const CinemaHall = ({selectedSeats, onSeatSelect, takenSeats}) => {
             <span>Вільні</span>
           </div>
           <div className="flex items-center gap-1 sm:gap-2">
-            <div className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 bg-blue-800 rounded-sm" />
+            <div className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 bg-white border-2 border-blue-300 shadow-inner rounded-sm" />
             <span>Зайняті</span>
           </div>
           <div className="flex items-center gap-1 sm:gap-2">
-            <div className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 bg-blue-500 shadow-[0_0_6px_1px_rgba(59,130,246,0.5)] sm:shadow-[0_0_8px_1.5px_rgba(59,130,246,0.5)] md:shadow-[0_0_10px_2px_rgba(59,130,246,0.5)] rounded-sm" />
+            <div className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 bg-blue-500 ring-1 sm:ring-2 ring-blue-600 shadow-md rounded-sm" />
             <span>Обрані</span>
           </div>
         </div>
