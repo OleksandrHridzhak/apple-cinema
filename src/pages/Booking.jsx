@@ -6,9 +6,9 @@ import CinemaHall from '../components/CinemaHall';
 import UserFormModal from '../components/UserFormModal';
 import SnackItem from '../components/SnackItem';
 import { saveBooking, getTakenSeatsForSeance } from '../services/BookingService';
-import movies from '../data/movies';
 
 const Booking = () => {
+  const [movies, setMovies] = useState([]);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [showUserForm, setShowUserForm] = useState(false);
   const [popcornQuantity, setPopcornQuantity] = useState(0);
@@ -26,17 +26,47 @@ const Booking = () => {
   const movie = movies.find((movie) => movie.id == movieId);
 
   useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const API_BASE_URL = 'http://localhost:3022/';
+        const response = await fetch(`${API_BASE_URL}api/movies`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const data = await response.json();
+        console.log('Fetched movies:', data);
+        setMovies(data);
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+      }
+    };
+
+    fetchMovies();
+  }, []);
+
+  useEffect(() => {
     if (movie && movie.seanceTimes && movie.seanceTimes.length > 0) {
       setSelectedSeance(movie.seanceTimes[0]);
     }
   }, [movie]);
 
   useEffect(() => {
-    if (selectedSeance) {
-      const seats = getTakenSeatsForSeance(movieId, selectedSeance);
-      setTakenSeats([...seats]);
-    }
-  }, [movieId, selectedSeance]);
+    const fetchTakenSeats = async () => {
+      if (selectedSeance) {
+        try {
+          const seats = await getTakenSeatsForSeance(movieId, selectedSeance);
+          setTakenSeats([...seats]); 
+        } catch (error) {
+          console.error('Error fetching taken seats:', error);
+          setTakenSeats([]); 
+        }
+      }
+    };
+
+    fetchTakenSeats();
+  }, [movieId, selectedSeance]); 
 
   const validateForm = () => {
     const newErrors = {};
@@ -127,31 +157,37 @@ const Booking = () => {
       <div className="max-w-6xl mx-auto bg-white rounded-xl sm:rounded-2xl shadow-md sm:shadow-xl overflow-hidden">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-2/3 p-4 sm:p-6">
-          <div className="flex flex-col sm:flex-row items-start mb-4 sm:mb-6">
-              <div className="w-full sm:w-60 sm:h-80 flex-shrink-0 rounded-lg overflow-hidden mb-4 sm:mb-0 sm:mr-4">
-                <img
-                  src={`/${movie.poster}`}
-                  alt={movie.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex flex-col gap-1 sm:gap-0 flex-1 min-w-0">
-                <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mr-auto">{movie.title}</h2>
-                
-                <div className="cflex flex-wrap gap-2 mt-1 text-blue-600">
-                  <p className=" text-left sm:text-xl">{movie.duration}</p>
-                  <p className="text-left sm:text-xl">{movie.genre}</p>
-                  <span className="font-semibold text-base sm:text-xl">{movie.rating}</span>
-                </div>
-                
-                <div className="mt-3 text-blue-600 text-left">
-                  <p className="text-base sm:text-lg line-clamp-4 hover:line-clamp-none transition-all">
-                    {movie.description}
-                  </p>
-                </div>
-              </div>
+            <div className="flex flex-col sm:flex-row items-start mb-4 sm:mb-6">
+              {movie && (
+                <>
+                  <div className="w-full sm:w-60 sm:h-80 flex-shrink-0 rounded-lg overflow-hidden mb-4 sm:mb-0 sm:mr-4">
+                    <img
+                      src={`/${movie.poster}`}
+                      alt={movie.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1 sm:gap-0 flex-1 min-w-0">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mr-auto">{movie.title}</h2>
+
+                    <div className="cflex flex-wrap gap-2 mt-1 text-blue-600">
+                      <p className=" text-left sm:text-xl">{movie.duration}</p>
+                      <p className="text-left sm:text-xl">{movie.genre}</p>
+                      <span className="font-semibold text-base sm:text-xl">{movie.rating}</span>
+                    </div>
+
+                    <div className="mt-3 text-blue-600 text-left">
+                      <p className="text-base sm:text-lg line-clamp-4 hover:line-clamp-none transition-all">
+                        {movie.description}
+                      </p>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
-            <div className="mt-3 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            {movie && (
+              <>
+                <div className="mt-3 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                   <div className="flex items-center">
                     <span className="text-base sm:text-lg text-blue-700 font-small">Оберіть сеанс:</span>
                   </div>
@@ -170,16 +206,18 @@ const Booking = () => {
                       </button>
                     ))}
                   </div>
-              </div>
-            <div className="border-b border-blue-200 my-4 sm:my-6"></div>
-            {selectedSeance && (
-              <div className="mb-6 sm:mb-8">
-                <CinemaHall 
-                  takenSeats={takenSeats} 
-                  selectedSeats={selectedSeats} 
-                  onSeatSelect={setSelectedSeats} 
-                />
-              </div>
+                </div>
+                <div className="border-b border-blue-200 my-4 sm:my-6"></div>
+                {selectedSeance && (
+                  <div className="mb-6 sm:mb-8">
+                    <CinemaHall 
+                      takenSeats={takenSeats} 
+                      selectedSeats={selectedSeats} 
+                      onSeatSelect={setSelectedSeats} 
+                    />
+                  </div>
+                )}
+              </>
             )}
           </div>
           <div className="md:w-1/3 p-4 sm:p-6 bg-blue-50 md:bg-white md:border-l border-blue-200">
