@@ -5,10 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import CinemaHall from '../components/CinemaHall';
 import UserFormModal from '../components/UserFormModal';
 import SnackItem from '../components/SnackItem';
+import { getMovie } from '../services/BookingService';
 import { saveBooking, getTakenSeatsForSeance } from '../services/BookingService';
 
 const Booking = () => {
-  const [movies, setMovies] = useState([]);
+  const [movie, setMovie] = useState(null);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [showUserForm, setShowUserForm] = useState(false);
   const [popcornQuantity, setPopcornQuantity] = useState(0);
@@ -23,28 +24,15 @@ const Booking = () => {
   const [errors, setErrors] = useState({});
 
   const { movieId } = useParams();
-  const movie = movies.find((movie) => movie.id == movieId);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const API_BASE_URL = 'http://localhost:3022/';
-        const response = await fetch(`${API_BASE_URL}api/movies`, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        const data = await response.json();
-        console.log('Fetched movies:', data);
-        setMovies(data);
-      } catch (error) {
-        console.error('Error fetching movies:', error);
-      }
+    const fetchData = async () => {
+      const data = await getMovie(movieId);
+      console.log('Fetched movie data:', data);
+      setMovie(data);
     };
-
-    fetchMovies();
-  }, []);
+    fetchData();
+  }, [movieId]);
 
   useEffect(() => {
     if (movie && movie.seanceTimes && movie.seanceTimes.length > 0) {
@@ -192,7 +180,7 @@ const Booking = () => {
                     <span className="text-base sm:text-lg text-blue-700 font-small">Оберіть сеанс:</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {movie.seanceTimes.map((seance) => (
+                    {movie?.seanceTimes.map((seance) => (
                       <button
                         key={seance}
                         onClick={() => handleSeanceChange(seance)}

@@ -156,5 +156,203 @@
     "total": 140,
     "timestamp": "2025-04-08T10:37:22.491Z",
     "id": "1744108642550"
+  },
+  {
+    "movieId": "2",
+    "seance": "22.02 21:30",
+    "seats": [
+      "16"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 140,
+    "timestamp": "2025-04-08T10:51:00.826Z",
+    "id": "1744109460881"
+  },
+  {
+    "movieId": "2",
+    "seance": "23.02 18:00",
+    "seats": [
+      "111"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 140,
+    "timestamp": "2025-04-08T10:51:21.068Z",
+    "id": "1744109481127"
+  },
+  {
+    "movieId": "2",
+    "seance": "22.02 21:30",
+    "seats": [
+      "15"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 140,
+    "timestamp": "2025-04-08T10:55:49.132Z",
+    "id": "1744109749178"
+  },
+  {
+    "movieId": "2",
+    "seance": "22.02 21:30",
+    "seats": [
+      "18"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 140,
+    "timestamp": "2025-04-08T10:57:36.194Z",
+    "id": "1744109856234"
+  },
+  {
+    "movieId": "10",
+    "seance": "01.03 21:00",
+    "seats": [
+      "26"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 140,
+    "timestamp": "2025-04-08T11:06:17.237Z",
+    "id": "1744110377279"
+  },
+  {
+    "movieId": "10",
+    "seance": "01.03 21:00",
+    "seats": [
+      "27",
+      "28",
+      "29",
+      "210"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 500,
+    "timestamp": "2025-04-08T11:08:55.885Z",
+    "id": "1744110535933"
+  },
+  {
+    "movieId": "2",
+    "seance": "22.02 21:30",
+    "seats": [
+      "27"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 140,
+    "timestamp": "2025-04-08T11:34:11.689Z",
+    "id": "1744112051744"
+  },
+  {
+    "movieId": "1",
+    "seance": "21.02 8:00",
+    "seats": [
+      "11",
+      "22",
+      "44",
+      "33",
+      "55",
+      "66"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 2,
+      "coke": 2
+    },
+    "total": 1040,
+    "timestamp": "2025-04-08T11:41:14.519Z",
+    "id": "1744112474559"
+  },
+  {
+    "movieId": "3",
+    "seance": "23.02 19:00",
+    "seats": [
+      "110"
+    ],
+    "userData": {
+      "name": "Лох",
+      "email": "оалв@fd.v",
+      "phone": "ав"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 140,
+    "timestamp": "2025-04-08T11:45:29.798Z",
+    "id": "1744112729852"
+  },
+  {
+    "movieId": "3",
+    "seance": "23.02 19:00",
+    "seats": [
+      "28"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hrida",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 140,
+    "timestamp": "2025-04-08T11:48:14.021Z",
+    "id": "1744112894066"
   }
 ]

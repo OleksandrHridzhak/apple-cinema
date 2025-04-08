@@ -12,6 +12,11 @@ const DATA_FILE = path.join(__dirname, 'data', 'data.json');
 app.use(cors());
 app.use(express.json());
 
+function getTakenSeatsForSeance(bookings, movieId, seance) {
+    const reservations = bookings.filter(b => b.movieId === movieId && b.seance === seance);
+    return reservations.flatMap(r => r.seats);
+}
+
 const readData = () => {
     try {
         const data = fs.readFileSync(DATA_FILE, 'utf8');
@@ -33,16 +38,6 @@ const writeData = (data) => {
         console.error('Помилка запису у файл:', error);
     }
 };
-
-app.get('/api/bookings', (req, res) => {
-    try {
-        const bookings = readData();
-        res.json(bookings);
-    } catch (error) {
-        console.error('Помилка читання бронювань:', error);
-        res.status(500).json({ error: 'Помилка сервера' });
-    }
-});
 
 app.post('/api/bookings', (req, res) => {
     try {
@@ -97,40 +92,20 @@ app.get('/api/movies', (req, res) => {
     }
 });
 
-app.post('/api/bookings/check-availability', (req, res) => {
+app.get('/api/movies/:id', (req, res) => {
     try {
-        const bookings = readData();
-        const { movieId, seance, seats } = req.body;
-        const takenSeats = getTakenSeatsForSeance(bookings, movieId, seance);
-        const unavailable = seats.filter(seat => takenSeats.includes(seat));
-        
-        res.json({
-            available: unavailable.length === 0,
-            unavailableSeats: unavailable
-        });
+        const movieId = req.params.id;
+        const movie = movies.find(m => m.id == movieId);
+        if (!movie) {
+            return res.status(404).json({ error: 'Фільм не знайдено' });
+        }
+
+        res.json(movie);
     } catch (error) {
-        console.error('Помилка перевірки доступності:', error);
+        console.error('Помилка отримання фільму:', error);
         res.status(500).json({ error: 'Помилка сервера' });
     }
 });
-
-app.delete('/api/bookings/:bookingId', (req, res) => {
-    try {
-        const bookings = readData();
-        const { bookingId } = req.params;
-        const updatedBookings = bookings.filter(b => b.id !== bookingId);
-        writeData(updatedBookings);
-        res.json({ success: true });
-    } catch (error) {
-        console.error('Помилка скасування:', error);
-        res.status(500).json({ success: false, message: 'Помилка скасування бронювання' });
-    }
-});
-
-function getTakenSeatsForSeance(bookings, movieId, seance) {
-    const reservations = bookings.filter(b => b.movieId === movieId && b.seance === seance);
-    return reservations.flatMap(r => r.seats);
-}
 
 app.listen(PORT, () => {
     console.log(`Сервер запущено на http://localhost:${PORT}`);
