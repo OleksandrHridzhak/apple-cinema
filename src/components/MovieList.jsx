@@ -13,14 +13,14 @@ const MovieList = ({ movies }) => {
     );
 
     return (
-        <div className="p-4 sm:p-6 md:p-8 bg-white min-h-screen">
+        <div className=" bg-blue-50 p-4 sm:p-6 md:p-8 min-h-screen">
             <div className="max-w-7xl mx-auto mb-6 sm:mb-8">
                 <input
                     type="text"
                     placeholder="Пошук фільмів..."
                     value={searchTerm}
                     onChange={handleSearchChange}
-                    className="w-full p-2 sm:p-3 bg-gray-50 border-2 border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full p-2 sm:p-3 bg-white border-2 border-blue-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 />
             </div>
             <div className="max-w-7xl mx-auto">

@@ -354,5 +354,26 @@
     "total": 140,
     "timestamp": "2025-04-08T11:48:14.021Z",
     "id": "1744112894066"
+  },
+  {
+    "movieId": "7",
+    "seance": "27.02 21:00",
+    "seats": [
+      "12",
+      "22",
+      "32"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "0985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 380,
+    "timestamp": "2025-04-08T12:42:08.726Z",
+    "id": "1744116128758"
   }
 ]
