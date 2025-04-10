@@ -60,19 +60,29 @@ const Booking = () => {
   const validateForm = () => {
     const newErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^(\+380\d{9}|0\d{9})$/;
 
+  
     if (!userData.name.trim()) newErrors.name = "Ім'я обов'язкове";
-    if (!userData.phone.trim()) newErrors.phone = 'Телефон обов\'язковий';
+  
+    if (!userData.phone.trim()) {
+      newErrors.phone = 'Телефон обов\'язковий';
+    } else if (!phoneRegex.test(userData.phone)) {
+      newErrors.phone = 'Невірний формат телефону';
+    }
+  
     if (!userData.email.trim()) {
       newErrors.email = 'Email обов\'язковий';
     } else if (!emailRegex.test(userData.email)) {
       newErrors.email = 'Невірний формат email';
     }
+  
     if (!selectedSeance) newErrors.seance = 'Оберіть час сеансу';
-
+  
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
