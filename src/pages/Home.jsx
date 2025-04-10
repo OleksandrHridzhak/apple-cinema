@@ -5,8 +5,6 @@ import Header from '../components/Header';
 
 const Home = () => {
     const [movies, setMovies] = useState([]);
-
-
     useEffect(() => {
         const fetchData = async () => {
             const data = await getMovies();

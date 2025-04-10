@@ -510,5 +510,84 @@
     "total": 140,
     "timestamp": "2025-04-10T16:49:50.292Z",
     "id": "1744303790361"
+  },
+  {
+    "movieId": "3",
+    "seance": "23.02 19:00",
+    "seats": [
+      "210",
+      "211"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "+380985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 260,
+    "timestamp": "2025-04-10T17:38:24.532Z",
+    "id": "1744306704577"
+  },
+  {
+    "movieId": "3",
+    "seance": "23.02 19:00",
+    "seats": [
+      "29"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "+380098562689"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 140,
+    "timestamp": "2025-04-10T17:47:07.425Z",
+    "id": "1744307227475"
+  },
+  {
+    "movieId": "3",
+    "seance": "23.02 19:00",
+    "seats": [
+      "13",
+      "23"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "+380985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 260,
+    "timestamp": "2025-04-10T18:58:52.074Z",
+    "id": "1744311532106"
+  },
+  {
+    "movieId": "3",
+    "seance": "23.02 19:00",
+    "seats": [
+      "16",
+      "26"
+    ],
+    "userData": {
+      "name": "Олександр Гріджак",
+      "email": "oleksandr.hridzhak@lnu.edu.ua",
+      "phone": "+380985626897"
+    },
+    "snacks": {
+      "popcorn": 0,
+      "coke": 0
+    },
+    "total": 260,
+    "timestamp": "2025-04-10T18:59:06.029Z",
+    "id": "1744311546059"
   }
 ]

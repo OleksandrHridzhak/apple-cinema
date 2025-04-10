@@ -48,13 +48,13 @@ const UserFormModal = ({ userData, handleInputChange, errors, setShowUserForm, h
         <div className="mt-6 flex justify-end space-x-3">
           <button
             onClick={() => setShowUserForm(false)}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
+            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100"
           >
             Скасувати
           </button>
           <button
             onClick={handleBookingSubmit}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
           >
             Підтвердити
           </button>

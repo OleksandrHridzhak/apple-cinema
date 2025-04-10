@@ -47,7 +47,6 @@ export const saveBooking = async (bookingData) => {
 
         return { 
             success: true, 
-            bookingId: responseData.id,
         };
     } catch (error) {
         console.error('Помилка збереження бронювання:', error);

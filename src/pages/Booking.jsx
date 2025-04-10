@@ -17,12 +17,12 @@ const Booking = () => {
   const [cokeQuantity, setCokeQuantity] = useState(0);
   const [takenSeats, setTakenSeats] = useState([]);
   const [selectedSeance, setSelectedSeance] = useState(null);
+  const [errors, setErrors] = useState({});
   const [userData, setUserData] = useState({
     name: '',
     email: '',
     phone: ''
   });
-  const [errors, setErrors] = useState({});
 
   const { movieId } = useParams();
 
@@ -33,7 +33,7 @@ const Booking = () => {
       setMovie(data);
     };
     fetchData();
-  }, [movieId]);
+  }, []);
 
   useEffect(() => {
     if (movie && movie.seanceTimes && movie.seanceTimes.length > 0) {
@@ -60,7 +60,7 @@ const Booking = () => {
   const validateForm = () => {
     const newErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^(\+380\d{9}|0\d{9})$/;
+    const phoneRegex = /^(\+380\d{9})$/;
 
   
     if (!userData.name.trim()) newErrors.name = "Ім'я обов'язкове";
@@ -76,8 +76,6 @@ const Booking = () => {
     } else if (!emailRegex.test(userData.email)) {
       newErrors.email = 'Невірний формат email';
     }
-  
-    if (!selectedSeance) newErrors.seance = 'Оберіть час сеансу';
   
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -137,10 +135,10 @@ const Booking = () => {
       <div className="max-w-6xl mx-auto bg-white rounded-xl sm:rounded-2xl shadow-md sm:shadow-xl overflow-hidden">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-2/3 p-4 sm:p-6">
-            <div className="flex flex-col sm:flex-row items-start mb-4 sm:mb-6">
+            <div className="flex flex-col sm:flex-row mb-4 sm:mb-6">
               {movie && (
                 <>
-                  <div className="w-full sm:w-60 sm:h-80 flex-shrink-0 rounded-lg overflow-hidden mb-4 sm:mb-0 sm:mr-4">
+                  <div className="w-full sm:w-60 sm:h-80 rounded-lg overflow-hidden mb-4 sm:mb-0 sm:mr-4">
                     <img
                       src={`/${movie.poster}`}
                       alt={movie.title}
@@ -150,14 +148,14 @@ const Booking = () => {
                   <div className="flex flex-col gap-1 sm:gap-0 flex-1 min-w-0">
                     <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mr-auto">{movie.title}</h2>
 
-                    <div className="cflex flex-wrap gap-2 mt-1 text-blue-600">
+                    <div className="flex flex-wrap gap-2 mt-1 text-blue-600">
                       <p className=" text-left sm:text-xl">{movie.duration}</p>
                       <p className="text-left sm:text-xl">{movie.genre}</p>
                       <span className="font-semibold text-base sm:text-xl">{movie.rating}</span>
                     </div>
 
                     <div className="mt-3 text-blue-600 text-left">
-                      <p className="text-base sm:text-lg line-clamp-4 hover:line-clamp-none transition-all">
+                      <p className="text-base sm:text-lg line-clamp-4 hover:line-clamp-none">
                         {movie.description}
                       </p>
                     </div>
@@ -167,16 +165,16 @@ const Booking = () => {
             </div>
             {movie && (
               <>
-                <div className="mt-3 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <div className="mt-3 flex flex-col sm:flex-row sm:items-center gap-3">
                   <div className="flex items-center">
-                    <span className="text-base sm:text-lg text-blue-700 font-small">Оберіть сеанс:</span>
+                    <span className="text-base sm:text-lg text-blue-700">Оберіть сеанс:</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {movie?.seanceTimes.map((seance) => (
                       <button
                         key={seance}
                         onClick={() => handleSeanceChange(seance)}
-                        className={`px-3 py-1 sm:px-4 sm:py-2 rounded-lg text-sm sm:text-base transition ${
+                        className={`px-3 py-1 sm:px-4 sm:py-2 rounded-lg text-sm sm:text-base ${
                           selectedSeance === seance
                             ? 'bg-blue-600 text-white'
                             : 'bg-blue-100 text-blue-800 hover:bg-blue-200'

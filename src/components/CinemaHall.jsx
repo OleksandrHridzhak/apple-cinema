@@ -31,7 +31,6 @@ const CinemaHall = ({ selectedSeats, onSeatSelect, takenSeats }) => {
   };
 
   const getSeatStatus = (seatId) => {
-    if (!seatMap[seatId]) return 'empty';
     if (selectedSeats.includes(seatId)) return 'selected';
     return seatMap[seatId].status;
   };
@@ -45,9 +44,8 @@ const CinemaHall = ({ selectedSeats, onSeatSelect, takenSeats }) => {
         return `${baseStyles} bg-blue-500 ring-1 ring-blue-600 shadow-md`;
       case 'available':
         return `${baseStyles} bg-blue-200 hover:bg-blue-300 border border-blue-400 cursor-pointer`;
-      case 'empty':
       default:
-        return 'opacity-0';
+        return '';
     }
   };
   
@@ -75,8 +73,6 @@ const CinemaHall = ({ selectedSeats, onSeatSelect, takenSeats }) => {
             ЕКРАН
           </span>
         </div>
-
-
         <div className="min-w-max justify-center flex flex-col items-center">
           {rows.map(row => (
             <div key={row} className="flex items-center mb-1 sm:mb-1.5 md:mb-2 lg:mb-3">
@@ -93,7 +89,7 @@ const CinemaHall = ({ selectedSeats, onSeatSelect, takenSeats }) => {
                       key={seatId}
                       className={`${getSeatStyles(status)} 
                         w-4 h-5 xs:w-5 xs:h-6 sm:w-6 sm:h-7 
-                        md:w-7 md:h-8 lg:w-8 lg:h-10 xl:w-9 xl:h-11`}
+                        md:w-7 md:h-8 lg:w-8 lg:h-10 xl :w-9 xl:h-11`}
                       onClick={() => toggleSeat(seatId)}
                       disabled={status === 'taken'}
                       aria-label={`Місце ${seatId}, ${status === 'taken' ? 'зайняте' : status === 'selected' ? 'обране' : 'вільне'}`}

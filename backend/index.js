@@ -12,11 +12,6 @@ const DATA_FILE = path.join(__dirname, 'data', 'data.json');
 app.use(cors());
 app.use(express.json());
 
-function getTakenSeatsForSeance(bookings, movieId, seance) {
-    const reservations = bookings.filter(b => b.movieId === movieId && b.seance === seance);
-    return reservations.flatMap(r => r.seats);
-}
-
 const readData = () => {
     try {
         const data = fs.readFileSync(DATA_FILE, 'utf8');
@@ -43,16 +38,6 @@ app.post('/api/bookings', (req, res) => {
     try {
         const bookings = readData();
         const bookingData = req.body;
-        const existingSeats = getTakenSeatsForSeance(bookings, bookingData.movieId, bookingData.seance);
-        const conflictedSeats = bookingData.seats.filter(seat => existingSeats.includes(seat));
-        
-        if (conflictedSeats.length > 0) {
-            return res.status(400).json({
-                success: false,
-                message: `Наступні місця вже зайняті: ${conflictedSeats.join(', ')}`,
-                conflictedSeats
-            });
-        }
 
         const newBooking = {
             ...bookingData,

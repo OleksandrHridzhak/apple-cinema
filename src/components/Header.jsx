@@ -22,7 +22,6 @@ const Header = () => {
                             <span className="text-white group-hover:text-blue-200 transition-colors">
                                 Головна
                             </span>
-                            <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-blue-200 group-hover:w-full transition-all duration-300" />
                         </a>
                         <a 
                             href="/movies" 
@@ -31,7 +30,7 @@ const Header = () => {
                             <span className="text-white group-hover:text-blue-200 transition-colors">
                                 Фільми
                             </span>
-                            <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-blue-200 group-hover:w-full transition-all duration-300" />
+                        
                         </a>
                         <a 
                             href="/about" 
@@ -40,7 +39,7 @@ const Header = () => {
                             <span className="text-white group-hover:text-blue-200 transition-colors">
                                 Про нас
                             </span>
-                            <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-blue-200 group-hover:w-full transition-all duration-300" />
+                        
                         </a>
                         <a 
                             href="/contact" 
@@ -49,11 +48,11 @@ const Header = () => {
                             <span className="text-white group-hover:text-blue-200 transition-colors">
                                 Контакти
                             </span>
-                            <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-blue-200 group-hover:w-full transition-all duration-300" />
+                        
                         </a>
                         <div className="h-6 w-px bg-blue-600 mx-4" />
                         <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full hover:shadow-lg transition-all duration-300 text-white">
-                            ПОДАРУНОК
+                            Увійти
                         </button>
                     </nav>
 
